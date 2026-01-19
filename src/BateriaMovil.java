@@ -4,34 +4,33 @@ public class BateriaMovil {
     //Añade un método usar(int minutos) que reduzca el porcentaje de batería y un método cargar(int minutos)
     // que aumente el porcentaje sin superar el 100.
     //Desde la clase principal, simula el uso del móvil jugando y después la carga.
-    private int porcentajeInicial;
-    private int porcentajeFinal;
+    public int porcentaje;
 
-    public BateriaMovil(int porcentajeInicial, int porcentajeFinal) {
-        this.porcentajeInicial = porcentajeInicial;
-        this.porcentajeFinal = porcentajeFinal;
-    }
 
-    public int usar(){
-        return usar();
-    }
-    public int cargar(){
-        return cargar();
+    public BateriaMovil(int porcentaje) {
+        this.porcentaje = porcentaje;
+
     }
 
-    public int getPorcentajeInicial() {
-        return porcentajeInicial;
+
+    public void usar(int minutos){
+        porcentaje=porcentaje-minutos;
+        if (porcentaje<0){
+            porcentaje=0;
+        }
+        }
+
+    public void cargar(int minutos) {
+        porcentaje=porcentaje + minutos;
+
+        if (porcentaje > 100) {
+            porcentaje = 100;
+        }
     }
 
-    public int getPorcentajeFinal() {
-        return porcentajeFinal;
+
+    public int getPorcentaje() {
+        return this.porcentaje;
     }
 
-    public void setPorcentajeInicial(int porcentajeInicial) {
-        this.porcentajeInicial = porcentajeInicial;
-    }
-
-    public void setPorcentajeFinal(int porcentajeFinal) {
-        this.porcentajeFinal = porcentajeFinal;
-    }
 }
